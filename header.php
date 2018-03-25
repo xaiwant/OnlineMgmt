@@ -14,24 +14,12 @@
    <body>
       <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
          <div class="container">
-            <a href="success.php">
-            <img src="logo.png" alt="Dev Ops">
-            </a>
+            <a href="SuccessfulLogin.php"><img src="logo.png" alt="Dev Ops"></a>
 			<br>
 			<div class="user-area"> 
 			<?php 
 			include('Session.php');
-			if ($_SESSION) { echo 'Hi, ' .$user[2]; } else {}
-/*
-			include('Connection.php');
-				$conn = mysqli_connect($dbhost, $username, $password, $dbname);
-				session_start();
-				if ($_SESSION) {
-					$query = "SELECT * FROM Users WHERE email='" . $_SESSION['email'] . "'";  
-					$user = mysqli_fetch_row(mysqli_query($conn, $query));
-					echo 'Hi, ' .$user[2];
-				}
-*/				
+			if ($_SESSION) { echo 'Hi, ' .$user[2]; } else {}			
 			?></div>
             <br>
             <ul class="horizontal_menu">
@@ -43,4 +31,4 @@
          </div>
       </nav>
       <div class="container">
-      <div class="row">
+        <div class="row">

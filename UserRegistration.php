@@ -15,7 +15,7 @@ include('header.php');
             <br><br>
 			<label>Gender:</label><br>
             <select name="blood_group">
-               <option value="none">None</option>
+               <option value=""></option>
                <option value="male">Male</option>
                <option value="female">Female</option>
                <option value="transgender">Transgender</option>
@@ -35,7 +35,7 @@ include('header.php');
 			<br><br>
 			<label>Blood Group:</label>
             <select name="blood_group">
-               <option value="none">None</option>
+               <option value=""></option>
                <option value="A">A</option>
 			   <option value="A+">A+</option>
 			   <option value="A-">A-</option>
@@ -49,8 +49,23 @@ include('header.php');
 			   <option value="O-">O-</option>
             </select>
 			<br><br>
-         </fieldset>	 
+         </fieldset>
+
+         <fieldset>
+            <legend><span class="glyphicon glyphicon-paste"></span>Secuirty question:</legend>
+            <select name="secuirtyq" required>
+               <option value=""></option>
+               <option value="What was your childhood name?">What was your childhood name?</option>
+			   <option value="Which City do you love more?">Which City do you love more?</option>
+			   <option value="Favourite Sport?">Favourite Sport?</option>
+               <option value="Food you cooked first time?">Food you cooked first time?</option>
+			   <option value="Favourite Past time?">Favourite Past time?</option>
+            </select>
+			<br><br>
+			<input id ="secuirtya" type="text" required name="secuirtya" placeholder="cricket">
+			<br><br>
+         </fieldset>
 		 <button id ="submitButton" input type="submit" class="btn btn-default"><span class="glyphicon glyphicon-log-in"></span>  Register</button>
 <?php 
-include('footer.php');
+//include('footer.php');
 ?>

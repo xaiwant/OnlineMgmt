@@ -29,7 +29,9 @@ $sql1 = "create table Users (
 	height VARCHAR(30),
 	weight VARCHAR(30), 
 	createdtime int(11) NOT NULL, 
-	changetime int(11))";
+	changetime int(11),
+	secuirtyq VARCHAR(255) NOT NULL,
+	secuirtya VARCHAR(255) NOT NULL)";
 
 if (mysqli_query($conn, $sql1)) {
     //echo "Users Table created successfully";

@@ -1,13 +1,25 @@
 
 .user-login-center, .user-register-center{
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background-color: #009BBB;
+    background-color: #63919a;
     padding: 30px;
-	border-radius: 10px;
+    border-radius: 10px;
+    float: right;
 }
+
+.user-login-center .forgot-pass a{
+  color: #FAFAFA;	
+  text-decoration: none;
+}
+
+.user-login-center.password-change-req .btn,
+.user-register-center .btn,
+.user-login-center .btn {
+	color: green;
+	background-color: #fafafa;
+	border-radius: 5px;
+	border-color: #FAFAFA;
+}
+
 
 .user-register-center input {
 	width: 100%;
