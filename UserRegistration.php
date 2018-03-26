@@ -1,5 +1,6 @@
 <?php
 include('header.php');
+if (empty($_SESSION)) {
 ?>
    <form action="SuccessfulRegistration.php" method="post"> 
       <div class="user-register-center">
@@ -14,7 +15,7 @@ include('header.php');
 			<input id ="DatOfBirth" style="font-size: 15px" type="date" name="DatOfBirth" required>
             <br><br>
 			<label>Gender:</label><br>
-            <select name="blood_group">
+            <select name="blood_group" required>
                <option value=""></option>
                <option value="male">Male</option>
                <option value="female">Female</option>
@@ -26,7 +27,13 @@ include('header.php');
             <br><br>
             <input id ="pass1" type="password" required name="pass1" placeholder="password">	
             <input id ="pass2" type="password" required name="pass2" placeholder="Retype password">	
-            <br><br><div id="message"></div><br><br>			
+            <br><br><div id="message"></div><br><br>
+            <select name="user_role" required>
+               <option value="">Who are You?</option>
+			   <option value="patient">Patient</option>
+               <option value="doctor">Doctor</option>
+            </select>
+			<br><br>
          </fieldset>
          <fieldset>
             <legend><span class="glyphicon glyphicon-paste"></span>Physical Information:</legend>
@@ -34,7 +41,7 @@ include('header.php');
             <input id ="weight" type="text" required name="weight" maxlength="3" size="3" placeholder="weight">
 			<br><br>
 			<label>Blood Group:</label>
-            <select name="blood_group">
+            <select name="blood_group" required>
                <option value=""></option>
                <option value="A">A</option>
 			   <option value="A+">A+</option>
@@ -67,5 +74,8 @@ include('header.php');
          </fieldset>
 		 <button id ="submitButton" input type="submit" class="btn btn-default"><span class="glyphicon glyphicon-log-in"></span>  Register</button>
 <?php 
+} else {
+	header('Refresh: 1; URL=UserLogin.php');
+}
 //include('footer.php');
 ?>

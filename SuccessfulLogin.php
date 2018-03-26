@@ -3,11 +3,12 @@ include('header.php');
 include('Connection.php');
 $conn = mysqli_connect($dbhost, $username, $password, $dbname);
 
-$sql4 = "SELECT email from Users where pass1='" . md5($_POST["pass1"]) ."' AND email='" . $_POST["email"] ."'";
+$sql4 = "SELECT email from Users where pass1='" . md5($_POST["pass1"]) ."' AND email='" . $_POST["email"] ."' AND user_role='" . $_POST["user_role"] ."'";
 	if (mysqli_num_rows(mysqli_query($conn,$sql4)) >= 1)  {
 
 		$_SESSION['email'] = $_POST["email"];
 	    $_SESSION['pass']  = md5($_POST["pass1"]);
+		$_SESSION['user_role']  = $_POST["user_role"];
 	    $_SESSION['time']  = time();
 	
 		$sql6 = "SELECT * from Session where email='" . $_SESSION['email'] . "' AND pass1='" . md5($_POST["pass1"]) . "'";	
@@ -26,13 +27,9 @@ $sql4 = "SELECT email from Users where pass1='" . md5($_POST["pass1"]) ."' AND e
 																		
 		    mysqli_query($conn, $sql7);
 	    }
-         echo "Hi, ".$_SESSION['email'];
-		 echo '<br>';
-		 echo "Welcome to our Page";		
+		 header("Location: UserLogin.php");		 
     } else {
 		//echo ("Error:" . mysqli_error($conn));
-		//echo ("Sessio:" . mysqli_error($conn));
-	    //echo ("Users error " . mysqli_error($conn));
 		header("Location: UserLogin.php");
     }
 	include('footer.php'); 

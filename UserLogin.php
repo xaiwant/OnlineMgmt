@@ -1,5 +1,5 @@
 <?php
-  include('header.php');
+include('header.php');  
 if (empty($_SESSION)) {
 ?>
    <form action="SuccessfulLogin.php" method="post"> 
@@ -11,7 +11,10 @@ if (empty($_SESSION)) {
             <br><br>
             <label> Password:</label><br>
             <input type="password" name="pass1"  size="50" required autocomplete="off">	
-            <br><br>			
+            <br><br>
+			<label>Role:</label><br>
+			<input type="radio" name="user_role" value="Patient"> Patient<br>
+			<input type="radio" name="user_role" value="doctor"> Doctor<br>
          </fieldset>
 		 <br>
 		 <div class="forgot-pass">
@@ -23,7 +26,9 @@ if (empty($_SESSION)) {
 	 </form> 
 <?php
 } else {
-	echo 'You are on Home Page';
+	echo "Hi,<b><i> ".$_SESSION['email']."</b></i>";
+	echo '<br><br>';
+	echo 'Welcome,You are on Home Page';	
 }
 	  include('footer.php');
 ?>

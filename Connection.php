@@ -25,6 +25,7 @@ $sql1 = "create table Users (
 	email VARCHAR(255) NOT NULL,
 	pass1 VARCHAR(255) NOT NULL,
 	pass2 VARCHAR(255)  NOT NULL,
+	user_role VARCHAR(255)  NOT NULL,
 	blood_group VARCHAR(30),
 	height VARCHAR(30),
 	weight VARCHAR(30), 
