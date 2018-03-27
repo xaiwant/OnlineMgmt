@@ -17,10 +17,10 @@ if (isset($_POST["mob_number"]) && isset($_POST["email"])) {
 		  $patient_id = 'DOC' . substr($_POST["mob_number"], -4) . '' . substr($_POST["firstname"], 0, 2) . '' . substr($_POST["lastname"], 0, 2) . '' . substr($_POST["DatOfBirth"], 0, 2) . '' . date('His', time());	
 		}
 		
-        $query      = "INSERT INTO Users (patientid, firstname, middlename, lastname, DatOfBirth, mob_number, email, pass1, pass2, user_role, blood_group, height, weight, createdtime,secuirtyq, secuirtya )
-                  VALUES ('" . strtoupper($patient_id) . "', '" . $_POST["firstname"] . "','" . $_POST["middlename"] . "','" . $_POST["lastname"] . "','" . $_POST["DatOfBirth"] . "','" . $_POST["mob_number"] . "',    
-                '" . $_POST["email"] . "','" . md5($_POST["pass1"]) . "','" . md5($_POST["pass2"]) . "','" . $_POST["user_role"] . "','" . $_POST["blood_group"] . "','" . $_POST["height"] . "',
-                '" . $_POST["weight"] . "', '" . time() . "', '" . $_POST["secuirtyq"] . "', '" . $_POST["secuirtya"] . "')";
+        $query      = "INSERT INTO Users (patientid, firstname, middlename, lastname, DatOfBirth, gender, mob_number, email, pass1, pass2, user_role, blood_group, height, weight, createdtime,secuirtyq, secuirtya )
+						VALUES ('" . strtoupper($patient_id) . "', '" . $_POST["firstname"] . "','" . $_POST["middlename"] . "','" . $_POST["lastname"] . "','" . $_POST["DatOfBirth"] . "','" . $_POST["gender"] . "',
+						'" . $_POST["mob_number"] . "','" . $_POST["email"] . "','" . md5($_POST["pass1"]) . "','" . md5($_POST["pass2"]) . "','" . $_POST["user_role"] . "','" . $_POST["blood_group"] . "','" . $_POST["height"] . "',
+						'" . $_POST["weight"] . "', '" . time() . "', '" . $_POST["secuirtyq"] . "', '" . $_POST["secuirtya"] . "')";
         
         mysqli_query($conn, $query);
         echo 'Thanks for your registration <i>' . $_POST["firstname"] . '.</i>your patientID is <b>' . strtoupper($patient_id) . '</b>';

@@ -21,6 +21,7 @@ $sql1 = "create table Users (
 	middlename VARCHAR(255),
 	lastname VARCHAR(255),
 	DatOfBirth VARCHAR(50) NOT NULL,
+	gender VARCHAR(30) NOT NULL,
 	mob_number VARCHAR(30) NOT NULL,
 	email VARCHAR(255) NOT NULL,
 	pass1 VARCHAR(255) NOT NULL,
@@ -32,7 +33,12 @@ $sql1 = "create table Users (
 	createdtime int(11) NOT NULL, 
 	changetime int(11),
 	secuirtyq VARCHAR(255) NOT NULL,
-	secuirtya VARCHAR(255) NOT NULL)";
+	secuirtya VARCHAR(255) NOT NULL,
+	city VARCHAR(255),
+    country VARCHAR(255),
+	department VARCHAR(50),
+    landline int(11),
+	profile_pic_path VARCHAR(255))";
 
 if (mysqli_query($conn, $sql1)) {
     //echo "Users Table created successfully";
@@ -57,6 +63,8 @@ if (mysqli_query($conn, $sql2)) {
     //echo '<br>';
     //echo ("Session Table not created" . mysqli_error($conn));
 }
+
+
 
 mysqli_close($conn);
 ?>

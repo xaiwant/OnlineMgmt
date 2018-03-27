@@ -7,17 +7,22 @@ include('Session.php');
 		$title = 'User Login';
 	}else if ($_SERVER['REQUEST_URI'] == '/OnlineMgmt/ForgotPassword.php') {
 		$title = 'Forgot Password';
-	}
-	else if ($_SERVER['REQUEST_URI'] == '/OnlineMgmt/SuccessfulLogin.php') {
+	}else if ($_SERVER['REQUEST_URI'] == '/OnlineMgmt/SuccessfulLogin.php') {
 		$title = 'Home Page';
 	}else if ($_SERVER['REQUEST_URI'] == '/OnlineMgmt/DoctorUserListing.php') {
 		$title = 'Doctor Listing';
 	}else if ($_SERVER['REQUEST_URI'] == '/OnlineMgmt/PatientListing.php') {
 		$title = 'Patient Listing';
-	}else if ($_SERVER['REQUEST_URI'] == 'OnlineMgmt/SuccessfulRegistration.php') {
+	}else if ($_SERVER['REQUEST_URI'] == '/OnlineMgmt/PatientView.php') {
+		$title = 'Patient Detail';
+	}else if ($_SERVER['REQUEST_URI'] == '/OnlineMgmt/SuccessfulRegistration.php') {
 		$title = 'Registration Success';
-	}else if ($_SERVER['REQUEST_URI'] == 'OnlineMgmt/LogOut.php') {
+	}else if ($_SERVER['REQUEST_URI'] == '/OnlineMgmt/LogOut.php') {
 		$title = 'Logging out';
+	}else if ($_SERVER['REQUEST_URI'] == '/OnlineMgmt/ProfileView.php') {
+		$title = 'Profile view';
+	}else if ($_SERVER['REQUEST_URI'] == '/OnlineMgmt/ProfileEditPage.php') {
+		$title = 'Profile edit';
 	}
 
 ?>
@@ -59,6 +64,7 @@ include('Session.php');
 			     <li class="active"><a href="UserLogin.php">LogIn</a></li>
 			     <li class="user"><a href="UserRegistration.php">Registration</a></li>
 			   <?php } ?>
+			   <li class="active"><a href="ProfileView.php">Profile</a></li>
             </ul>
          </div>
       </nav>

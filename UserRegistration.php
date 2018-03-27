@@ -15,7 +15,7 @@ if (empty($_SESSION)) {
 			<input id ="DatOfBirth" style="font-size: 15px" type="date" name="DatOfBirth" required>
             <br><br>
 			<label>Gender:</label><br>
-            <select name="blood_group" required>
+            <select name="gender" required>
                <option value=""></option>
                <option value="male">Male</option>
                <option value="female">Female</option>

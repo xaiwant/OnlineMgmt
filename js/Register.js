@@ -22,4 +22,20 @@ jQuery(document).ready(function () {
 			
 		}
 });
+
+jQuery("#profile-image").click(function() { // bCheck is a input type button
+    var fileName = jQuery("#profile-image").val();
+
+    if(fileName) { // returns true if the string is not empty
+        alert(fileName + " was selected");
+    } else { // no file was selected
+        alert("no file selected");
+    }
 });
+
+
+
+
+
+});
+
