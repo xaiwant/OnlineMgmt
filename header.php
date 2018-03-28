@@ -37,13 +37,13 @@ include('Session.php');
       <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 	  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
       <link rel="stylesheet" type="text/css" href="css/styles.css">
-	  <link rel="shortcut icon" href="favicon.ico"/>
+	  <link rel="shortcut icon" href="images/favicon.ico"/>
 	  <script src="js/Register.js"></script>
    </head>
    <body>
       <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
          <div class="container">
-            <a href="SuccessfulLogin.php"><img src="logo.png" alt="Dev Ops"></a>
+            <a href="SuccessfulLogin.php"><img src="images/logo.png" alt="Dev Ops"></a>
 			<br>
 			<div class="user-area"> 
 			<?php 
@@ -52,10 +52,10 @@ include('Session.php');
 			?></div>
             <br>
             <ul class="horizontal_menu">
-			   <?php if (!empty($_SESSION)) {
-                         if ($_SESSION['user_role'] == 'doctor') {
-			         ?>
-							<li class="active"><a href="PatientListing.php">Patient</a></li>
+			   <?php if (!empty($_SESSION)) {  ?>
+				   <li class="active"><a href="ProfileView.php">Profile</a></li>
+                    <?php  if ($_SESSION['user_role'] == 'doctor') {
+			         ?>	<li class="active"><a href="PatientListing.php">Patient</a></li>
 						 <?php }else { ?>
 							<li class="active"><a href="DoctorUserListing.php">Doctors</a></li>
 				         <?php } ?>
@@ -64,7 +64,7 @@ include('Session.php');
 			     <li class="active"><a href="UserLogin.php">LogIn</a></li>
 			     <li class="user"><a href="UserRegistration.php">Registration</a></li>
 			   <?php } ?>
-			   <li class="active"><a href="ProfileView.php">Profile</a></li>
+			   
             </ul>
          </div>
       </nav>

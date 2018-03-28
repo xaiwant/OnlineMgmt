@@ -4,6 +4,8 @@ include('header.php');
 include('Connection.php');
 $conn = mysqli_connect($dbhost, $username, $password, $dbname);
 $sql7 = "SELECT * from Users where pass1='" . $_SESSION["pass"] ."' AND email='" . $_SESSION["email"] ."' AND user_role='" . $_SESSION["user_role"] ."'";
+if (!empty($_SESSION)) {
+
 if (mysqli_num_rows(mysqli_query($conn,$sql7)) >= 1)  {
 	$user = mysqli_fetch_row(mysqli_query($conn, $sql7));
 ?>	
@@ -20,7 +22,13 @@ if (mysqli_num_rows(mysqli_query($conn,$sql7)) >= 1)  {
             </div>
             <div class="panel-body">
               <div class="row">
-                <div class="col-md-3 col-lg-3 " align="center"> <img alt="User Pic" src="images/<?php echo $user[23] ?>" class="img-circle img-responsive"> </div>
+                <div class="col-md-3 col-lg-3 " align="center"> <img alt="User Pic" src="images/<?php 
+				if (empty($user[23])) {
+					echo 'anonymous.jpeg';
+				}else {
+					echo $user[23];
+				}
+				 ?>" class="img-circle img-responsive"> </div>
                 
                 <div class=" col-md-9 col-lg-9 "> 
                   <table class="table table-user-information">
@@ -74,6 +82,10 @@ if (mysqli_num_rows(mysqli_query($conn,$sql7)) >= 1)  {
 	
 	
 	
-<?php	
+<?php
+} 	
+}else {
+	header('Refresh: 1; URL=UserLogin.php');
+	
 }
 include('footer.php'); 
