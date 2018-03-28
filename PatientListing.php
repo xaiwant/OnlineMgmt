@@ -14,7 +14,7 @@
 						 echo "<tr><td><a href='#' data-toggle='modal' data-target='#". $row['patientid'] ."'>". $row['patientid'] ."</a></td><td>". $row['firstname'] ."</td><td>". $row['mob_number'] .' / <a href=mailto:'.$row['email'].">".$row['email']."</a></td><td>". date("d F Y H:i:s", $row['createdtime']) ."</td><td>";
 ?>			
   <!-- Modal -->
-  <div class="modal fade" id="myModal" role="dialog">
+  <div class="modal fade" id="<?php echo $row['patientid']?>" role="dialog">
     <div class="modal-dialog">
     
       <!-- Modal content-->
