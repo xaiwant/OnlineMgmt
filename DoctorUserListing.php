@@ -28,8 +28,15 @@
           <p>
  		     <table class="table table-user-information">
                     <tbody>
+                <div class="col-md-3 col-lg-3 " align="center"> <img alt="User Pic" src="images/<?php 
+				if (empty($user[23])) {
+					echo 'anonymous.jpeg';
+				}else {
+					echo $user[23];
+				}
+				 ?>" class="img-circle img-responsive"> </div>					
                       <tr>
-                        <td>ID:</td>
+                        <td>IDs:</td>
                         <td><?php echo $row['patientid'] ?></td>
                       </tr>
                       <tr>

@@ -1,4 +1,10 @@
 jQuery(document).ready(function () {
+
+$( ".alert" ).after( $( "#register" ) );
+$( ".alert" ).after( $( "#login" ) );
+$( ".alert" ).after( $( "#fpassword" ) );	
+	
+	
     jQuery("#pass2").focusout(function(e){		
         e.preventDefault();
         var matched,
@@ -9,12 +15,12 @@ jQuery(document).ready(function () {
 		if (password != ''){
            if(matched) { 
 			  jQuery("#message").html("Passwords Match");
-			  jQuery("#message").css({"background-color": "#DFF2BF", "color": "#4F8A10","padding": "3px","padding": "5px" ,"border-radius": "4px" });
+			  jQuery("#message").css({"background-color": "#DFF2BF", "color": "#4F8A10","padding": "3px","padding": "10px" ,"border-radius": "4px" });
 			  jQuery("#message").addClass("glyphicon glyphicon-ok");		  
 			  return false; 
             }else { 
 				jQuery("#message").html("Passwords don't match..."); 
-				jQuery("#message").css({"background-color": "#FFBABA", "color": "#D8000C","padding": "3px", "padding": "5px" ,"border-radius": "4px" });
+				jQuery("#message").css({"background-color": "#FFBABA", "color": "#D8000C","padding": "3px", "padding": "10px" ,"border-radius": "4px" });
 				jQuery("#message").addClass("glyphicon glyphicon-remove");
 				return false;
            }
@@ -32,10 +38,14 @@ jQuery("#profile-image").click(function() { // bCheck is a input type button
         alert("no file selected");
     }
 });
-
-
-
-
-
 });
+
+function menu_bootstrap() {
+    var x = document.getElementById("myTopnav");
+    if (x.className === "topnav") {
+        x.className += " responsive";
+    } else {
+        x.className = "topnav";
+    }
+}
 

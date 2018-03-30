@@ -25,8 +25,16 @@
         </div>
         <div class="modal-body">
           <p>
- 		     <table class="table table-user-information">
+                  <table class="table table-user-information">
                     <tbody>
+                <div class="col-md-3 col-lg-3 " align="center"> <img alt="User Pic" src="images/<?php 
+				if (empty($row['profile_pic_path'])) {
+					echo 'anonymous.jpeg';
+				}else {
+					echo $row['profile_pic_path'];
+				}
+				 ?>" class="img-circle img-responsive"> </div>					
+					
                       <tr>
                         <td>ID:</td>
                         <td><?php echo $row['patientid'] ?></td>
@@ -66,15 +74,14 @@
 					  <tr>
                         <td>Phone Number:</td>
                         <td>
-						   <?php echo $row['landline'] ?><span class="glyphicon glyphicon-phone-alt"></span><br><br>
-						   <?php echo $row['mob_number'] ?><span class="glyphicon glyphicon-earphone"></span>
+						   <?php echo $row['landline'] ?> <span class="glyphicon glyphicon-phone-alt"></span><br><br>
+						   <?php echo $row['mob_number'] ?> <span class="glyphicon glyphicon-earphone"></span>
                         </td>    
                       </tr>
                      
                     </tbody>
-                  </table>
-				</p>
-           </div>
+                  </table></p>
+        </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
         </div>
@@ -82,6 +89,9 @@
       
     </div>
   </div>
+
+
+			 
 			<?php }
 					echo "</td><td></table>";
 				} else {

@@ -11,9 +11,7 @@ if (mysqli_num_rows(mysqli_query($conn,$sql7)) >= 1)  {
 	      <div class="col-md-5  toppad  pull-right col-md-offset-3 ">
 <p class=" text-info"><?php echo date("M d,Y, h:i a"); ?> </p>
       </div>
-        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xs-offset-0 col-sm-offset-0 col-md-offset-3 col-lg-offset-3 toppad" >
-   
-   
+        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xs-offset-0 col-sm-offset-0 col-md-offset-3 col-lg-offset-3 toppad" >   
           <div class="panel panel-info">
             <div class="panel-heading">
               <h3 class="panel-title"><?php echo $user[2].' '.$user[4]?></h3>
@@ -24,7 +22,7 @@ if (mysqli_num_rows(mysqli_query($conn,$sql7)) >= 1)  {
                 
                 <div class=" col-md-9 col-lg-9 "> 
                   <table class="table table-user-information">
-                    <tbody>
+                    <tbody>					
                       <tr>
                         <td>ID:</td>
                         <td><?php echo $user[1] ?></td>
