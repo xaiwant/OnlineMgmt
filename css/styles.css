@@ -36,28 +36,7 @@
     border-color: #FAFAFA;
 }
 
-@media (min-width: 320px) {
-    #loginform_id,
-    #registrationform_id {
-        width: 100%;
-    }
-}
 
-@media (min-width: 992px) {
-    #loginform_id,
-    #registrationform_id {
-        width: 35.1%;
-    }
-}
-
-@media (min-width: 1200px) {
-    #loginform_id {
-        width: 35.1%;
-    }
-    #registrationform_id {
-        width: 50%;
-    }
-}
 
 .user-area {
     float: right;
