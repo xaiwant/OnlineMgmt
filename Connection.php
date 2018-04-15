@@ -65,6 +65,24 @@ if (mysqli_query($conn, $sql2)) {
 }
 
 
+// Creating Appointment table
+$sql3 = "create table Appointment (
+	id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+    pname VARCHAR(255),
+	pemail VARCHAR(255),
+	pmob_number VARCHAR(30),
+	pDatOfBirth VARCHAR(50),
+	pdepartment VARCHAR(50),
+    popdvisit VARCHAR(30),
+    patientid VARCHAR(255), 
+    preqtime int(11)
+	)";
+if (mysqli_query($conn, $sql3)) {
+    //echo "Appointment Table created";
+} else {
+    //echo '<br>';
+    //echo ("Appointment Table not created" . mysqli_error($conn));
+}
 
 mysqli_close($conn);
 ?>

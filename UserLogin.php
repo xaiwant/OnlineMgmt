@@ -4,17 +4,16 @@ if (empty($_SESSION)) {
 ?>
     <form id="login" action="" method="post">
         <div class="row">
-            <div id="loginform_id">
-                <div id="registrationform_name">Sign Up</div>
+            <div class="Absolute-Center is-Responsive">
+                <div id="registrationform_name"></div>
                 <fieldset>
-                    <div class="col-xs-12 form-group">
-                        <label> E-mail:</label>
-                        <br>
-                        <input type="email" class="form-control" name="email" size="50" required autocomplete="off">
-                    </div>
-                    <div class="col-xs-12 form-group">
-                        <label> Password:</label>
-                        <br>
+				<legend><span class="glyphicon glyphicon-user"></span> Sign Up:</legend>
+                    <div class="form-group input-group">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                        <input type="email" class="form-control" placeholder="jay@yahoo.com"name="email" size="50" required autocomplete="off">
+                    </div>					
+                    <div class="form-group input-group">
+					    <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
                         <input type="password" class="form-control" name="pass1" size="50" required autocomplete="off">
                     </div>
                     <div class="col-xs-12 form-group">
@@ -49,7 +48,7 @@ if (empty($_SESSION)) {
         <?php
 
 }
-	  include('footer.php');
+	  
 ?>
 
             <?php 
@@ -92,6 +91,7 @@ $sql4 = "SELECT email from Users where pass1='" . md5($_POST["pass1"]) ."' AND e
                     <?php
 	}
 }else {
-
+   
 }	
+include('footer.php');
 ?>

@@ -75,10 +75,11 @@ if (mysqli_num_rows(mysqli_query($conn,$sql7)) >= 1)  {
                         <span class="pull-right">
                             <a href="ProfileEditPage.php" data-original-title="Edit this user" data-toggle="tooltip" type="button" class="btn btn-sm btn-warning"><i class="glyphicon glyphicon-edit"></i></a>          
                         </span>
-                    </div>
+                 </div>
             
           </div>
         </div>
+		<br><br>
 	
 	
 	

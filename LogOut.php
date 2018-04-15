@@ -13,7 +13,7 @@
 	
 	if(empty($_SESSION['email']) && empty($_SESSION['pass']) && empty($_SESSION['time'])) {
 		echo "You'll be redirect to login page shortly..."; 
-		header('Refresh: 1; URL=UserLogin.php');
+		header('Refresh: 1; URL=index.php');
 	}
     		
 	session_destroy();

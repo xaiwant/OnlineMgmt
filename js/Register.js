@@ -49,3 +49,17 @@ function menu_bootstrap() {
     }
 }
 
+$(document).ready(function(){
+    //$("#pids").hide();
+        $("#p_visit").click(function(){
+        if ($('input[name=p_visit]:checked').val() == "yes" ) {
+			console.log('show');
+            $("#pids").show();	
+        }else {
+            //$("#p_doc_names").slideUp("fast"); 
+            $("#pids").hide();
+			console.log('hide');
+        }
+     });
+});
+

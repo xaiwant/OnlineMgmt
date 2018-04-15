@@ -4,15 +4,16 @@ if (empty($_SESSION)) {
 ?>
     <form id="fpassword" action="" method="post">
         <div class="row">
-            <div id="loginform_id">
-                <div id="registrationform_name">Password reset</div>
+            <div class="Absolute-Center is-Responsive">
+                <div id="registrationform_name"></div>
                 <fieldset>
-                    <div class="col-xs-12 form-group">
-                        <label>E-mail *</label>
-                        <input name="email" id="email" class="form-control" type="email" required autocomplete="off" />
+				<legend><span class="glyphicon glyphicon-user"></span> Password reset:</legend>
+				    <div class="col-md-12 col-xs-12 form-group input-group">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                        <input name="email" id="email" class="form-control" type="email" placeholder="jay@yahoo.com" required autocomplete="off" />
                     </div>
-                    <div class="col-xs-12 form-group">
-                        <label>Secuirty Question*</label>
+                    <div class="col-md-12 col-xs-12 form-group input-group">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-file"></i></span>
                         <select name="secuirtyq" class="form-control" id="secuirtyq" required>
                             <option value="">-- NONE --</option>
                             <option value="What was your childhood name?">What was your childhood name?</option>
@@ -22,18 +23,18 @@ if (empty($_SESSION)) {
                             <option value="Favourite Past time?">Favourite Past time?</option>
                         </select>
                     </div>
-                    <div class="col-xs-12 form-group">
-                        <label> Answer *</label>
-                        <input name="secuirtya" id="secuirtya" class="form-control" type="text" required autocomplete="off" />
+                    <div class="col-md-12 col-xs-12 form-group input-group">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-pencil"></i></span>
+                        <input name="secuirtya" id="secuirtya" class="form-control" type="text" placeholder="security answer" required autocomplete="off" />
                     </div>
 
-                    <div class="col-xs-12 form-group">
-                        <label> New Password *</label>
-                        <input name="pass1" id="pass1" class="form-control" type="password" required autocomplete="off" />
+                    <div class="col-md-12 col-xs-12 form-group input-group">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+                        <input name="pass1" id="pass1" class="form-control" type="password" placeholder="password" required autocomplete="off" />
                     </div>
-                    <div class="col-xs-12 form-group">
-                        <label>Retype New Password *</label>
-                        <input name="pass2" id="pass2" class="form-control" type="password" required autocomplete="off" />
+                    <div class="col-md-12 col-xs-12 form-group input-group">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+                        <input name="pass2" id="pass2" class="form-control" type="password" placeholder="retype-password"required autocomplete="off" />
                     </div>
                 </fieldset>
                 <br>

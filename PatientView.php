@@ -43,7 +43,7 @@ if (mysqli_num_rows(mysqli_query($conn,$sql7)) >= 1)  {
                       </tr>
                         <tr>
                         <td>Home Address</td>
-                        <td>Kathmandu,Nepal</td>
+                        <td><?php echo $user[20].', '.$user[19] ?></td>
                       </tr>
                       <tr>
                         <td>Email</td>

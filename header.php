@@ -32,7 +32,7 @@ include('Session.php');
     <head>
         <meta charset="utf-8">
         <title>
-            <?php echo $title; ?>
+            <?php //echo $title; ?>
         </title>
            <meta name="viewport" content="width=device-width, initial-scale=1">
            <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
@@ -43,33 +43,38 @@ include('Session.php');
 	       <script src="js/Register.js"></script>
    </head>
     <body>
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-            <div class="container">
-                <a href="SuccessfulLogin.php"><img src="images/logo.png" alt="Dev Ops"></a>
-                <br>
-                <div class="user-area">
-                    <?php 
+<nav class="navbar navbar-default navbar-static-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navigation">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="sr-only">Toggle navigation</span>
+      </button>
+      <a class="navbar-brand" href="index.php">The Hospital</a>
+    </div>
 
-			if (!empty($_SESSION)) { echo 'Hi, ' .$user[2]; } else {}			
-			?>
-                </div>
-                <br>
-                <div class="topnav" id="myTopnav">
-                    <?php if (!empty($_SESSION)) {  ?>
-                        <a href="ProfileView.php">Profile</a>
-                        <?php  if ($_SESSION['user_role'] == 'doctor') {
-			         ?> <a href="PatientListing.php">Patient</a>
-                            <?php }else { ?>
-                                <a href="DoctorUserListing.php">Doctors</a>
-                                <?php } ?>
-                                    <a href="LogOut.php">LogOut</a>
-                                    <?php } else { ?>
-                                        <a href="UserLogin.php">LogIn</a>
-                                        <a href="UserRegistration.php">Registration</a>
-                                        <?php } ?>
-                                            <a href="javascript:void(0);" style="font-size:15px;" class="icon" onclick="menu_bootstrap()">&#9776;</a>
-                </div>
-            </div>
-        </nav>
-        <div class="container">
+    <div class="collapse navbar-collapse" id="navigation">
+      <ul class="nav navbar-nav">
+              
+		      <?php if (  (!empty($_SESSION)) && ($_SESSION['user_role'] == 'doctor') ) {
+
+			  ?>
+			  <li><a href="ProfileView.php">Profile</a></li>
+		      <li><a href="PatientListing.php">All Patient</a></li>
+			  <li><a href="AppointmentList.php">Appointment</a></li>
+	          <?php } if (  (!empty($_SESSION)) && ($_SESSION['user_role'] == 'patient') ) { ?>
+			  <li><a href="DoctorUserListing.php">All Doctors</a></li>
+			  <li><a href="RequestAppointment.php">Request Appointment</a></li>
+              <?php  } 
+			  if (!empty($_SESSION)) {
+			  ?>
+              <li><a href="LogOut.php">Logout</a></li>
+			   <?php  } ?>
+      </ul>
+    </div>
+  </div>
+</nav>
+        <div class="container"  style="padding-top: 60px;">
             <div class="row align-items-center justify-content-center">

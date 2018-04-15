@@ -10,9 +10,9 @@
 					$sql5 = "SELECT * from Users where user_role='doctor'";
 					$val= mysqli_query($conn,$sql5) or die(mysql_error());
 				
-				    echo "<table style='width:100%'><tr><th>DoctorID</th><th>Firstname</th><th>Mobile/EmailID</th><th>Member since</th></tr>";
+				    echo "<div class='table-responsive'> <table style='width:100%'><tr><th>DoctorID</th><th>Firstname</th><th>Mobile/EmailID</th><th>Member since</th></tr>";
 				    while($row = mysqli_fetch_assoc($val)){  
-					   echo "<tr><td><a href='#' data-toggle='modal' data-target='#". $row['patientid'] ."'>". $row['patientid'] ."</a></td><td>". $row['firstname'] ."</td><td>". $row['mob_number'] .' / <a href=mailto:'.$row['email'].">".$row['email']."</a></td><td>". date("d F Y H:i:s", $row['createdtime']) ."</td><td>";
+					   echo "<tr><td><a href='#' data-toggle='modal' data-target='#". $row['patientid'] ."'>". $row['patientid'] ."</a></td><td>". $row['firstname'] ."</td><td>". $row['mob_number'] .' / <a href=mailto:'.$row['email'].">".$row['email']."</a></td><td>". date("d F Y H:i:s", $row['createdtime']) ."</td><td></table></div>";
 ?>					
   <!-- Modal -->
   <div class="modal fade" id="<?php echo $row['patientid']?>" role="dialog">
@@ -25,8 +25,9 @@
           <h4 class="modal-title"><?php echo $row['firstname'].' : '.$row['department']; ?></h4>
         </div>
         <div class="modal-body">
-          <p>
- 		     <table class="table table-user-information">
+          <p> 
+		     <div class="table-responsive">
+ 		     <table class="table table-user-information table-bordered">
                     <tbody>
                 <div class="col-md-3 col-lg-3 " align="center"> <img alt="User Pic" src="images/<?php 
 				if (empty($user[23])) {
@@ -81,6 +82,7 @@
                      
                     </tbody>
                   </table>
+				  </div>
 				</p>
            </div>
         <div class="modal-footer">
