@@ -1,29 +1,50 @@
 <?php
-include('Session.php');
-	/*Setting page Title*/
-	if ($_SERVER['REQUEST_URI'] == '/OnlineMgmt/UserRegistration.php'){
-		$title = 'User Registration';
-	}else if ($_SERVER['REQUEST_URI'] == '/OnlineMgmt/UserLogin.php') {
-		$title = 'User Login';
-	}else if ($_SERVER['REQUEST_URI'] == '/OnlineMgmt/ForgotPassword.php') {
-		$title = 'Forgot Password';
-	}else if ($_SERVER['REQUEST_URI'] == '/OnlineMgmt/SuccessfulLogin.php') {
-		$title = 'Home Page';
-	}else if ($_SERVER['REQUEST_URI'] == '/OnlineMgmt/DoctorUserListing.php') {
-		$title = 'Doctor Listing';
-	}else if ($_SERVER['REQUEST_URI'] == '/OnlineMgmt/PatientListing.php') {
-		$title = 'Patient Listing';
-	}else if ($_SERVER['REQUEST_URI'] == '/OnlineMgmt/PatientView.php') {
-		$title = 'Patient Detail';
-	}else if ($_SERVER['REQUEST_URI'] == '/OnlineMgmt/SuccessfulRegistration.php') {
-		$title = 'Registration Success';
-	}else if ($_SERVER['REQUEST_URI'] == '/OnlineMgmt/LogOut.php') {
-		$title = 'Logging out';
-	}else if ($_SERVER['REQUEST_URI'] == '/OnlineMgmt/ProfileView.php') {
-		$title = 'Profile view';
-	}else if ($_SERVER['REQUEST_URI'] == '/OnlineMgmt/ProfileEditPage.php') {
-		$title = 'Profile edit';
-	}
+include ('Session.php');
+/*Setting page Title*/
+if ($_SERVER['REQUEST_URI'] == '/OnlineMgmt/UserRegistration.php')
+{
+    $title = 'User Registration';
+}
+else if ($_SERVER['REQUEST_URI'] == '/OnlineMgmt/UserLogin.php')
+{
+    $title = 'User Login';
+}
+else if ($_SERVER['REQUEST_URI'] == '/OnlineMgmt/ForgotPassword.php')
+{
+    $title = 'Forgot Password';
+}
+else if ($_SERVER['REQUEST_URI'] == '/OnlineMgmt/SuccessfulLogin.php')
+{
+    $title = 'Home Page';
+}
+else if ($_SERVER['REQUEST_URI'] == '/OnlineMgmt/DoctorUserListing.php')
+{
+    $title = 'Doctor Listing';
+}
+else if ($_SERVER['REQUEST_URI'] == '/OnlineMgmt/PatientListing.php')
+{
+    $title = 'Patient Listing';
+}
+else if ($_SERVER['REQUEST_URI'] == '/OnlineMgmt/PatientView.php')
+{
+    $title = 'Patient Detail';
+}
+else if ($_SERVER['REQUEST_URI'] == '/OnlineMgmt/SuccessfulRegistration.php')
+{
+    $title = 'Registration Success';
+}
+else if ($_SERVER['REQUEST_URI'] == '/OnlineMgmt/LogOut.php')
+{
+    $title = 'Logging out';
+}
+else if ($_SERVER['REQUEST_URI'] == '/OnlineMgmt/ProfileView.php')
+{
+    $title = 'Profile view';
+}
+else if ($_SERVER['REQUEST_URI'] == '/OnlineMgmt/ProfileEditPage.php')
+{
+    $title = 'Profile edit';
+}
 
 ?>
     <!DOCTYPE html>
@@ -32,7 +53,8 @@ include('Session.php');
     <head>
         <meta charset="utf-8">
         <title>
-            <?php //echo $title; ?>
+            <?php //echo $title;
+ ?>
         </title>
            <meta name="viewport" content="width=device-width, initial-scale=1">
            <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
@@ -57,21 +79,24 @@ include('Session.php');
 
     <div class="collapse navbar-collapse" id="navigation">
       <ul class="nav navbar-nav">
-              
-		      <?php if (  (!empty($_SESSION)) && ($_SESSION['user_role'] == 'doctor') ) {
-
-			  ?>
-			  <li><a href="ProfileView.php">Profile</a></li>
-		      <li><a href="PatientListing.php">All Patient</a></li>
+              <li><a href="ProfileView.php">Profile</a></li>
+		      <?php if ((!empty($_SESSION)) && ($_SESSION['user_role'] == 'doctor'))
+{ ?>
+			  <li><a href="UserListing.php">All Patient</a></li>
 			  <li><a href="AppointmentList.php">Appointment</a></li>
-	          <?php } if (  (!empty($_SESSION)) && ($_SESSION['user_role'] == 'patient') ) { ?>
-			  <li><a href="DoctorUserListing.php">All Doctors</a></li>
+	          <?php
+} ?>
+			  <?php if ((!empty($_SESSION)) && ($_SESSION['user_role'] == 'Patient'))
+{ ?>
+			  <li><a href="UserListing.php">All Doctors</a></li>
 			  <li><a href="RequestAppointment.php">Request Appointment</a></li>
-              <?php  } 
-			  if (!empty($_SESSION)) {
-			  ?>
+              <?php
+}
+if (!empty($_SESSION))
+{ ?>
               <li><a href="LogOut.php">Logout</a></li>
-			   <?php  } ?>
+			   <?php
+} ?>
       </ul>
     </div>
   </div>

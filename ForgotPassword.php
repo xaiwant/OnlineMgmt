@@ -1,6 +1,7 @@
 <?php
-  include('header.php');
-if (empty($_SESSION)) {
+include ('header.php');
+if (empty($_SESSION))
+{
 ?>
     <form id="fpassword" action="" method="post">
         <div class="row">
@@ -46,37 +47,44 @@ if (empty($_SESSION)) {
         </div>
     </form>
     <?php
-} else {
-    //header("Location: ForgotPassword.php");
 }
-	  include('footer.php');
+else
+{
+    //header("Location: ForgotPassword.php");
+    
+}
+include ('footer.php');
 ?>
 
 <?php
-
 /**
  * Validating email & mobile number exist in User table
  */
-if ( isset($_POST["email"]) && isset($_POST["secuirtyq"]) && isset($_POST["secuirtya"]) && isset($_POST["pass1"]) && isset($_POST["pass2"]) ) {
+if (isset($_POST["email"]) && isset($_POST["secuirtyq"]) && isset($_POST["secuirtya"]) && isset($_POST["pass1"]) && isset($_POST["pass2"]))
+{
     $sql = "SELECT * from Users where email='" . $_POST["email"] . "' AND secuirtyq='" . $_POST["secuirtyq"] . "' AND secuirtya='" . $_POST["secuirtya"] . "'";
-    if (mysqli_num_rows(mysqli_query($conn, $sql)) >= 1) {
-	
-		/*Updating password value*/		
-		$sql8 = "UPDATE Users SET pass1='" . md5($_POST['pass1']) . "' , 
+    if (mysqli_num_rows(mysqli_query($conn, $sql)) >= 1)
+    {
+
+        /*Updating password value*/
+        $sql8 = "UPDATE Users SET pass1='" . md5($_POST['pass1']) . "' , 
 		                          pass2='" . md5($_POST['pass2']) . "' ,
 								  changetime='" . time() . "' 
 								  WHERE email='" . $_POST['email'] . "' AND 
 								  secuirtyq='" . $_POST['secuirtyq'] . "' AND 
 								  secuirtya='" . $_POST['secuirtya'] . "'";
-								  
-		mysqli_query($conn, $sql8);
+
+        mysqli_query($conn, $sql8);
 ?>		
   <div class="alert alert-success alert-dismissible">
     <strong>Success!</strong> You Password has been reset successfully. You can login from <a href="UserLogin.php" class="alert-link">here.</a>.
   </div>		
 		
 		
-<?php    } else {  ?>
+<?php
+    }
+    else
+    { ?>
         <div class="alert alert-danger alert-dismissible">
              <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
              <strong>Warning!</strong> Invalid detail. please enter appropriate detail as mentioned while registration!
@@ -84,9 +92,4 @@ if ( isset($_POST["email"]) && isset($_POST["secuirtyq"]) && isset($_POST["secui
 		<?php
     }
 }
-
-
-
-
-
 

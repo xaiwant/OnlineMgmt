@@ -1,9 +1,9 @@
 <?php
-
-include('header.php');
-include('Connection.php');
+include ('header.php');
+include ('Connection.php');
 $conn = mysqli_connect($dbhost, $username, $password, $dbname);
-if (!empty($_SESSION) && $_SESSION['user_role'] == 'patient' ) {
+if ((!empty($_SESSION)) && ($_SESSION['user_role'] == 'Patient'))
+{
 ?>
     <form id="register" action="" method="post">
         <div class="row">
@@ -70,10 +70,12 @@ if (!empty($_SESSION) && $_SESSION['user_role'] == 'patient' ) {
             </div>
         </div>
     </form>
-    <?php 
-} else {
+    <?php
+}
+else
+{
 
-	echo '<b>ACCESS DENIED</b>';
+    echo '<b>ACCESS DENIED</b>';
     exit;
 }
 ?>
@@ -81,13 +83,14 @@ if (!empty($_SESSION) && $_SESSION['user_role'] == 'patient' ) {
 
 
 <?php
-if (isset($_POST["pfirstname"]) && isset($_POST["pemail"])) {
+if (isset($_POST["pfirstname"]) && isset($_POST["pemail"]))
+{
 
-        $query      = "INSERT INTO appointment (pname, pemail, pmob_number, pDatOfApt, pdepartment, popdvisit, patientid, preqtime )
+    $query = "INSERT INTO appointment (pname, pemail, pmob_number, pDatOfApt, pdepartment, popdvisit, patientid, preqtime )
 						VALUES ('" . $_POST["pfirstname"] . "','" . $_POST["pemail"] . "','" . $_POST["pmob_number"] . "','" . $_POST["PDatOfAppt"] . "','" . $_POST["p_appoint_dpt"] . "',
 						'" . $_POST["p_visit"] . "', '" . $_POST["pid"] . "', '" . time() . "')";
-        
-        mysqli_query($conn, $query);
+
+    mysqli_query($conn, $query);
 ?>
 
   <div class="alert alert-success alert-dismissible">
@@ -96,7 +99,9 @@ if (isset($_POST["pfirstname"]) && isset($_POST["pemail"])) {
   </div>
 
 <?php
-} else {
+}
+else
+{
 ?>
   <div class="alert alert-warning alert-dismissible">
     <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
@@ -106,4 +111,5 @@ if (isset($_POST["pfirstname"]) && isset($_POST["pemail"])) {
 <?php
 }
 
-include('footer.php');
+include ('footer.php');
+

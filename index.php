@@ -50,26 +50,38 @@
             <p style="color: #ffffff; font-family: Arial, Helvetica, sans-serif; font-size: 14px;">The Hospital is one of the largest healthcare providers in eastern India and has become the youngest hospital to get the prestigious NABH (National Accreditation Board of Hospital & Healthcare Providers) accreditation. We bring you the finest ambience and services for inpatient and outpatient treatment, with special emphasis on quality care, reasonable price, management expertise and sophisticated medical devices.</p>
 
            <p class= "hidden-xs" style="color: #ffffff; font-family: Arial, Helvetica, sans-serif; font-size: 14px;">Medica chain of hospitals started its journey with Medica North Bengal Clinic, a 150-bed multispecialty hospital in Siliguri. The 400-bed Medica Superspecialty Hospital in Kolkata, one of the largest and best equipped in eastern India, was started in 2010, followed by Kantilal Gandhi Memorial Hospital in Jamshedpur and Bhagwan Mahavir Medica Superspecialty Hospital in Ranchi. </p>
-<?php  
-include('Session.php');
-if(empty($_SESSION['email'])) {  ?>
+<?php
+include ('Session.php');
+if (empty($_SESSION['email']))
+{ ?>
 		   	<a href="userRegistration.php" class="btn btn-primary btn-lg" role="button">Sign Up</a>
 			<a href="UserLogin.php" class="btn btn-primary btn-lg" role="button">Login</a>
-<?php  } else {  ?>
+<?php
+}
+else
+{ ?>
   <div class="dropdown">
     <button class="btn btn-lg btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Active Menu
     <span class="caret"></span></button>
     <ul class="dropdown-menu">
       <li><a href="ProfileView.php">Profile</a></li>
-<?php if ($_SESSION['user_role'] == 'doctor') {  ?>
-      <li><a href="PatientListing.php">All Patient</a></li>
-<?php } else { ?>
-      <li><a href="DoctorUserListing.php">All Doctors</a></li>
-<?php  } ?>
+<?php if ($_SESSION['user_role'] == 'doctor')
+    { ?>
+      <li><a href="UserListing.php">All Patient</a></li>
+	  <li><a href="AppointmentList.php">Appointment</a></li>
+<?php
+    }
+    else
+    { ?>
+      <li><a href="UserListing.php">All Doctors</a></li>
+	  <li><a href="RequestAppointment.php">Request Appointment</a></li>
+<?php
+    } ?>
       <li><a href="LogOut.php">Logout</a></li>
     </ul>
   </div>
-<?php } ?>
+<?php
+} ?>
 
           </div>
         </div>

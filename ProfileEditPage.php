@@ -1,19 +1,20 @@
 <?php
-   include('header.php');
-   include('Connection.php');
-   $conn = mysqli_connect($dbhost, $username, $password, $dbname);
-   $sql7 = "SELECT * from Users where pass1='" . $_SESSION["pass"] ."' AND email='" . $_SESSION["email"] ."' AND user_role='" . $_SESSION["user_role"] ."'";
-   if (mysqli_num_rows(mysqli_query($conn,$sql7)) >= 1)  {
-   	$user = mysqli_fetch_row(mysqli_query($conn, $sql7));
-   ?>	
+include ('header.php');
+include ('Connection.php');
+$conn = mysqli_connect($dbhost, $username, $password, $dbname);
+$sql7 = "SELECT * from Users where pass1='" . $_SESSION["pass"] . "' AND email='" . $_SESSION["email"] . "' AND user_role='" . $_SESSION["user_role"] . "'";
+if (mysqli_num_rows(mysqli_query($conn, $sql7)) >= 1)
+{
+    $user = mysqli_fetch_row(mysqli_query($conn, $sql7));
+?>	
 <div class="col-md-5  toppad  pull-right col-md-offset-3 ">
    <p class=" text-info">Updated: <?php echo date("M d,Y, h:i a", $user[16]); ?> </p>
 </div>
-<form action="ProfileEditSave.php?id=<?php echo $user[1]?>" enctype="multipart/form-data" method="post">
+<form action="ProfileEditSave.php?id=<?php echo $user[1] ?>" enctype="multipart/form-data" method="post">
    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xs-offset-0 col-sm-offset-0 col-md-offset-3 col-lg-offset-3 toppad" >
       <div class="panel panel-info">
          <div class="panel-heading">
-            <h3 class="panel-title"><?php echo $user[2].' '.$user[4]?></h3>
+            <h3 class="panel-title"><?php echo $user[2] . ' ' . $user[4] ?></h3>
          </div>
          <div class="panel-body">
             <div class="row">
@@ -24,19 +25,19 @@
                      <tbody>
                         <tr>
                            <td>First Name</td>
-                           <td><input id ="firstname" type="text" name="firstname" value ="<?php echo $user[2];?>" size="20" required autocomplete="off"></td>
+                           <td><input id ="firstname" type="text" name="firstname" value ="<?php echo $user[2]; ?>" size="20" required autocomplete="off"></td>
                         </tr>
                         <tr>
                            <td>Middle Name</td>
-                           <td><input id ="middlename" type="text" name="middlename" value ="<?php echo $user[3];?>" size="20" required autocomplete="off"></td>
+                           <td><input id ="middlename" type="text" name="middlename" value ="<?php echo $user[3]; ?>" size="20" required autocomplete="off"></td>
                         </tr>
                         <tr>
                            <td>Last Name</td>
-                           <td><input id ="lastname" type="text" name="lastname" value ="<?php echo $user[4];?>" size="20" required autocomplete="off"></td>
+                           <td><input id ="lastname" type="text" name="lastname" value ="<?php echo $user[4]; ?>" size="20" required autocomplete="off"></td>
                         </tr>
                         <tr>
                            <td>Date of Birth</td>
-                           <td><input id ="DatOfBirth" style="font-size: 15px" type="date" name="DatOfBirth" value ="<?php echo $user[5];?>"required></td>
+                           <td><input id ="DatOfBirth" style="font-size: 15px" type="date" name="DatOfBirth" value ="<?php echo $user[5]; ?>"required></td>
                         </tr>
                         <tr>
                            <td>Gender</td>
@@ -282,7 +283,7 @@
                         </tr>
                         <tr>
                            <td>City</td>
-                           <td><input id ="city" type="text" name="city" value ="<?php echo $user[19];?>" size="20" required autocomplete="off"></td>
+                           <td><input id ="city" type="text" name="city" value ="<?php echo $user[19]; ?>" size="20" required autocomplete="off"></td>
                         </tr>
                         <tr>
                            <td>Email</td>
@@ -307,7 +308,8 @@
                            <td><input id ="weight" type="text" required name="weight" value ="<?php echo $user[14] ?>" maxlength="3" size="3"></td>
                         </tr>
                         <tr>
-						<?php if ($user[11] == 'doctor') { ?>
+						<?php if ($user[11] == 'doctor')
+    { ?>
                            <td>Department:</td>
                            <td>
                               <select id= "department" name="department" required>
@@ -330,7 +332,8 @@
                                  <option value="urology">Urology</option>
                               </select>
                            </td>						   
-						<?php }  ?>   
+						<?php
+    } ?>   
                         </tr>
                         <tr>
                            <td>Blood Group:</td>
@@ -381,25 +384,26 @@
       </div>
    </div>
 </form>
-<?php	
-   }
-   //include('footer.php');
-   ?>
-<?php 
-   $default_secuirtyq = $user[17];
-   $default_gender = $user[6];
-   $default_blood_group = $user[12];
-   $default_department = $user[22]; 
-   $default_country = $user[20];
- ?>
+<?php
+}
+//include('footer.php');
+
+?>
+<?php
+$default_secuirtyq = $user[17];
+$default_gender = $user[6];
+$default_blood_group = $user[12];
+$default_department = $user[22];
+$default_country = $user[20];
+?>
    
 <script type='text/javascript'>
    $(document).ready(function(){
-        $("#secuirtyq option:contains(" + '<?php echo $default_secuirtyq?>' + ")").attr('selected', 'selected');
-	    $("#gender option:contains(" + '<?php echo $default_gender?>' + ")").attr('selected', 'selected');
-        $("#blood_group option:contains(" + '<?php echo $default_blood_group?>' + ")").attr('selected', 'selected');
-        $("#department option:contains(" + '<?php echo $default_department?>' + ")").attr('selected', 'selected');
-        $("#country option:contains(" + '<?php echo $default_country?>' + ")").attr('selected', 'selected');
+        $("#secuirtyq option:contains(" + '<?php echo $default_secuirtyq ?>' + ")").attr('selected', 'selected');
+	    $("#gender option:contains(" + '<?php echo $default_gender ?>' + ")").attr('selected', 'selected');
+        $("#blood_group option:contains(" + '<?php echo $default_blood_group ?>' + ")").attr('selected', 'selected');
+        $("#department option:contains(" + '<?php echo $default_department ?>' + ")").attr('selected', 'selected');
+        $("#country option:contains(" + '<?php echo $default_country ?>' + ")").attr('selected', 'selected');
    });
    
    

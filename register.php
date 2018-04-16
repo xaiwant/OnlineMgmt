@@ -1,6 +1,7 @@
 <?php
-include('header.php');
-if (empty($_SESSION)) {
+include ('header.php');
+if (empty($_SESSION))
+{
 ?>
     <form action="SuccessfulRegistration.php" method="post">
         <div class="row">
@@ -121,9 +122,12 @@ if (empty($_SESSION)) {
             </div>
         </div>
     </form>
-    <?php 
-} else {
-	header('Refresh: 1; URL=UserLogin.php');
+    <?php
+}
+else
+{
+    header('Refresh: 1; URL=UserLogin.php');
 }
 //include('footer.php');
+
 ?>

@@ -1,6 +1,7 @@
 <?php
-include('header.php');  
-if (empty($_SESSION)) {
+include ('header.php');
+if (empty($_SESSION))
+{
 ?>
     <form id="login" action="" method="post">
         <div class="row">
@@ -39,37 +40,44 @@ if (empty($_SESSION)) {
         </div>
     </form>
     <?php
-} else {
-	//echo "Hi,<b><i> ".$_SESSION['email']."</b></i>";
-	//echo '<br><br>';
-	//echo 'Welcome,You are on Home Page';
+}
+else
+{
+    //echo "Hi,<b><i> ".$_SESSION['email']."</b></i>";
+    //echo '<br><br>';
+    //echo 'Welcome,You are on Home Page';
+    
 ?>
 
         <?php
-
 }
-	  
+
 ?>
 
-            <?php 
+            <?php
 
-if (isset($_POST["pass1"]) && isset($_POST["email"]) && isset($_POST["user_role"]) ) { 
+if (isset($_POST["pass1"]) && isset($_POST["email"]) && isset($_POST["user_role"]))
+{
 
-$sql4 = "SELECT email from Users where pass1='" . md5($_POST["pass1"]) ."' AND email='" . $_POST["email"] ."' AND user_role='" . $_POST["user_role"] ."'";
-	if (mysqli_num_rows(mysqli_query($conn,$sql4)) >= 1)  {
+    $sql4 = "SELECT email from Users where pass1='" . md5($_POST["pass1"]) . "' AND email='" . $_POST["email"] . "' AND user_role='" . $_POST["user_role"] . "'";
+    if (mysqli_num_rows(mysqli_query($conn, $sql4)) >= 1)
+    {
 
-		$_SESSION['email'] = $_POST["email"];
-	    $_SESSION['pass']  = md5($_POST["pass1"]);
-		$_SESSION['user_role']  = $_POST["user_role"];
-	    $_SESSION['time']  = time();
+        $_SESSION['email'] = $_POST["email"];
+        $_SESSION['pass'] = md5($_POST["pass1"]);
+        $_SESSION['user_role'] = $_POST["user_role"];
+        $_SESSION['time'] = time();
 
-		$sql6 = "SELECT * from Session where email='" . $_SESSION['email'] . "' AND pass1='" . md5($_POST["pass1"]) . "'";	
-		if (mysqli_num_rows(mysqli_query($conn, $sql6)) == 0) {
+        $sql6 = "SELECT * from Session where email='" . $_SESSION['email'] . "' AND pass1='" . md5($_POST["pass1"]) . "'";
+        if (mysqli_num_rows(mysqli_query($conn, $sql6)) == 0)
+        {
 
-			/*insert into session table*/
-			$query = "INSERT INTO Session (email, pass1, browser_detail, client_ip, logintime)VALUES ('" . $_POST["email"] ."','" . md5($_POST["pass1"]) ."','" . $_SERVER['HTTP_USER_AGENT'] ."','" . $_SERVER['REMOTE_ADDR'] ."','" . $_SESSION['time'] ."')";
-			mysqli_query($conn, $query);
-		} else {
+            /*insert into session table*/
+            $query = "INSERT INTO Session (email, pass1, browser_detail, client_ip, logintime)VALUES ('" . $_POST["email"] . "','" . md5($_POST["pass1"]) . "','" . $_SERVER['HTTP_USER_AGENT'] . "','" . $_SERVER['REMOTE_ADDR'] . "','" . $_SESSION['time'] . "')";
+            mysqli_query($conn, $query);
+        }
+        else
+        {
 
             $sql7 = "UPDATE Session SET logintime='" . time() . "' ,
                                			browser_detail='" . $_SERVER['HTTP_USER_AGENT'] . "',
@@ -77,21 +85,25 @@ $sql4 = "SELECT email from Users where pass1='" . md5($_POST["pass1"]) ."' AND e
 										WHERE email='" . $_SESSION['email'] . "' AND 
 										pass1='" . $_SESSION['pass'] . "'";
 
-		    mysqli_query($conn, $sql7);
-	    }
+            mysqli_query($conn, $sql7);
+        }
 ?>
 
-                <?php		 header("Location: SuccessfulLogin.php");		 
-    } else {
+                <?php header("Location: SuccessfulLogin.php");
+    }
+    else
+    {
 ?>
                     <div class="alert alert-warning alert-dismissible">
                         <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
                         <strong>Warning!</strong> Invalid login credential. Incase you didn't remember use forgot Password !
                     </div>
                     <?php
-	}
-}else {
-   
-}	
-include('footer.php');
+    }
+}
+else
+{
+
+}
+include ('footer.php');
 ?>
