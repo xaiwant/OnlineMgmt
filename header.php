@@ -79,9 +79,11 @@ else if ($_SERVER['REQUEST_URI'] == '/OnlineMgmt/ProfileEditPage.php')
 
     <div class="collapse navbar-collapse" id="navigation">
       <ul class="nav navbar-nav">
-              <li><a href="ProfileView.php">Profile</a></li>
-		      <?php if ((!empty($_SESSION)) && ($_SESSION['user_role'] == 'doctor'))
-{ ?>
+	          <li><a href="ContactUs.php">Contact Us</a></li>
+	          <?php if (!empty($_SESSION)) { ?>
+			  <li><a href="ProfileView.php">Profile</a></li>
+			  <?php } ?>
+		      <?php if ((!empty($_SESSION)) && ($_SESSION['user_role'] == 'doctor')) { ?>
 			  <li><a href="UserListing.php">All Patient</a></li>
 			  <li><a href="AppointmentList.php">Appointment</a></li>
 	          <?php
@@ -92,14 +94,16 @@ else if ($_SERVER['REQUEST_URI'] == '/OnlineMgmt/ProfileEditPage.php')
 			  <li><a href="RequestAppointment.php">Request Appointment</a></li>
               <?php
 }
-if (!empty($_SESSION))
-{ ?>
+              if (!empty($_SESSION)) { ?>
               <li><a href="LogOut.php">Logout</a></li>
-			   <?php
-} ?>
+			   <?php 
+} else { ?>
+               <li><a href="userRegistration.php">Sign Up</a></li>
+			   <li><a href="UserLogin.php">Log In</a></li>
+			   <?php } ?>
       </ul>
     </div>
   </div>
 </nav>
-        <div class="container"  style="padding-top: 60px;">
+        <div class="container"  style="padding-top: 60px; min-height: 700px;">
             <div class="row align-items-center justify-content-center">

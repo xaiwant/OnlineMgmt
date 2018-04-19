@@ -389,5 +389,9 @@ $easing: cubic-bezier(0.7, 0, 0, 0.7);
   }
 }			
 	
-	
+@media (min-width: 1200px) {
+ #registrationform_id {
+    width: 748px;
+ }	
+}
 			

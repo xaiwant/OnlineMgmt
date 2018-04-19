@@ -84,5 +84,25 @@ if (mysqli_query($conn, $sql3)) {
     //echo ("Appointment Table not created" . mysqli_error($conn));
 }
 
+
+// Creating Contact us  table
+$sql4 = "create table query (
+			id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+			cname VARCHAR(255),
+			cqueryt VARCHAR(255),
+			cqueryq VARCHAR(255),	
+			cemail VARCHAR(255),
+			cmob_number VARCHAR(30),
+			creqtime int(11)
+	   )";
+if (mysqli_query($conn, $sql4)) {
+    //echo "contact us Table created";
+} else {
+    //echo '<br>';
+    //echo ("contact us Table not created" . mysqli_error($conn));
+}
+
+
+
 mysqli_close($conn);
 ?>
