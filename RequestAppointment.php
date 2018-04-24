@@ -1,7 +1,7 @@
 <?php
 include ('header.php');
-include ('Connection.php');
-$conn = mysqli_connect($dbhost, $username, $password, $dbname);
+//include ('Connection.php');
+//$conn = mysqli_connect($dbhost, $username, $password, $dbname);
 if ((!empty($_SESSION)) && ($_SESSION['user_role'] == 'Patient'))
 {
 ?>
@@ -85,17 +85,24 @@ else
 <?php
 if (isset($_POST["pfirstname"]) && isset($_POST["pemail"]))
 {
-
-    $query = "INSERT INTO appointment (pname, pemail, pmob_number, pDatOfApt, pdepartment, popdvisit, patientid, preqtime )
+    $query = "INSERT INTO appointment (pname, pemail, pmob_number, PDatOfAppt, pdepartment, popdvisit, patientid, preqtime )
 						VALUES ('" . $_POST["pfirstname"] . "','" . $_POST["pemail"] . "','" . $_POST["pmob_number"] . "','" . $_POST["PDatOfAppt"] . "','" . $_POST["p_appoint_dpt"] . "',
 						'" . $_POST["p_visit"] . "', '" . $_POST["pid"] . "', '" . time() . "')";
 
     mysqli_query($conn, $query);
+/*	
+	if (mysqli_query($conn, $query)) {
+    echo "data inserted to Appointment Table";
+} else {
+    echo '<br>';
+    echo ("Appointment Table data did not inserted" . mysqli_error($conn));
+}
+*/	
 ?>
 
   <div class="alert alert-success alert-dismissible">
     <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-    <strong>Success!</strong> Thanks for your Appointment. We'll Contcat your shortly.
+    <strong>Success!</strong> Thanks for your Appointment. We'll Contact your shortly.
   </div>
 
 <?php

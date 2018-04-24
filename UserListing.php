@@ -16,16 +16,18 @@ if (!empty($_SESSION['email']) && !empty($_SESSION['pass'] && !empty($_SESSION['
     $val = mysqli_query($conn, $sql5) or die(mysql_error());
 
     echo "<div class='table-responsive'><table style='width:100%'><tr><th>" . ($_SESSION["user_role"] == "doctor" ? "PatientID" : "DoctorID / Department") . "</th><th>Firstname</th><th>Mobile/EmailID</th><th>Member since</th></tr>";
+	
     while ($row = mysqli_fetch_assoc($val))
-    {
+    {		
         if ($_SESSION['user_role'] == 'patient')
         {
-            echo "<tr><td><a href='#' data-toggle='modal' data-target='#" . $row['patientid'] . "'>" . $row['patientid'] . ' / ' . $row['department'] . "</a></td><td>" . $row['firstname'] . "</td><td>" . $row['mob_number'] . ' / <a href=mailto:' . $row['email'] . ">" . $row['email'] . "</a></td><td>" . date("d F Y H:i:s", $row['createdtime']) . "</td><td></table></div>";
+            echo "<tr><td><a href='#' data-toggle='modal' data-target='#" . $row['patientid'] . "'>" . $row['patientid'] . ' / ' . $row['department'] . "</a></td><td>" . $row['firstname'] . "</td><td>" . $row['mob_number'] . ' / <a href=mailto:' . $row['email'] . ">" . $row['email'] . "</a></td><td>" . date("d F Y H:i:s", $row['createdtime']) . "</td><td>";
         }
         else
         {
-            echo "<tr><td><a href='#' data-toggle='modal' data-target='#" . $row['patientid'] . "'>" . $row['patientid'] . "</a></td><td>" . $row['firstname'] . "</td><td>" . $row['mob_number'] . ' / <a href=mailto:' . $row['email'] . ">" . $row['email'] . "</a></td><td>" . date("d F Y H:i:s", $row['createdtime']) . "</td><td></table></div>";
+            echo "<tr><td><a href='#' data-toggle='modal' data-target='#" . $row['patientid'] . "'>" . $row['patientid'] . "</a></td><td>" . $row['firstname'] . "</td><td>" . $row['mob_number'] . ' / <a href=mailto:' . $row['email'] . ">" . $row['email'] . "</a></td><td>" . date("d F Y H:i:s", $row['createdtime']) . "</td><td>";
         }
+		
 ?>			
   <!-- Modal -->
   <div class="modal fade" id="<?php echo $row['patientid'] ?>" role="dialog">
@@ -121,7 +123,7 @@ if (!empty($_SESSION['email']) && !empty($_SESSION['pass'] && !empty($_SESSION['
  
 			<?php
     }
-    echo "</td><td></table>";
+    echo "</table></div>";
 
 }
 else

@@ -11,11 +11,9 @@
 					
 					echo "<div class='table-responsive'><table style='width:100%'><tr><th>Patient/PatientID(If Available)</th><th>Mobile/EmailID</th><th>Department</th><th>Appointment Date</th><th>Requested Date</th></tr>";
 					while($row = mysqli_fetch_assoc($val)){  
-						 echo "<tr><td>". $row['pname'].' / ' .$row['patientid'] ."</td><td>". $row['pmob_number'] .' / <a href=mailto:'.$row['pemail'].">".$row['pemail']."</a></td><td>". $row['pdepartment'] ."</td><td>". $row['pDatOfApt'] ."</td><td>". date("d F Y g:i:s A", $row['preqtime']) ."</td><td></table></div>";
-?>			
-			 
-			<?php }
-					echo "</td><td></table>";
+						 echo "<tr><td>". $row['pname'].' / ' .$row['patientid'] ."</td><td>". $row['pmob_number'] .' / <a href=mailto:'.$row['pemail'].">".$row['pemail']."</a></td><td>". $row['pdepartment'] ."</td><td>". $row['PDatOfAppt'] ."</td><td>". date("d F Y g:i:s A", $row['preqtime']) ."</td><td>";						 
+				    }
+					echo "</table></div>";
 				} else {
 					echo '<b>ACCESS DENIED</b>';
 				}

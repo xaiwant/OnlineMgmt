@@ -71,7 +71,7 @@ $sql3 = "create table Appointment (
     pname VARCHAR(255),
 	pemail VARCHAR(255),
 	pmob_number VARCHAR(30),
-	pDatOfBirth VARCHAR(50),
+	PDatOfAppt VARCHAR(30),
 	pdepartment VARCHAR(50),
     popdvisit VARCHAR(30),
     patientid VARCHAR(255), 

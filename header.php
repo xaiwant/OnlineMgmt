@@ -17,13 +17,9 @@ else if ($_SERVER['REQUEST_URI'] == '/OnlineMgmt/SuccessfulLogin.php')
 {
     $title = 'Home Page';
 }
-else if ($_SERVER['REQUEST_URI'] == '/OnlineMgmt/DoctorUserListing.php')
+else if ($_SERVER['REQUEST_URI'] == '/OnlineMgmt/UserListing.php')
 {
-    $title = 'Doctor Listing';
-}
-else if ($_SERVER['REQUEST_URI'] == '/OnlineMgmt/PatientListing.php')
-{
-    $title = 'Patient Listing';
+    $title = 'User Listing';
 }
 else if ($_SERVER['REQUEST_URI'] == '/OnlineMgmt/PatientView.php')
 {
@@ -62,7 +58,7 @@ else if ($_SERVER['REQUEST_URI'] == '/OnlineMgmt/ProfileEditPage.php')
            <script src="js/bootstrap.min.js"></script>
 	       <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
            <link rel="stylesheet" type="text/css" href="css/styles.css">
-	       <script src="js/Register.js"></script>
+	       <script src="js/Register.js"></script>		   
    </head>
     <body>
 <nav class="navbar navbar-default navbar-static-top" role="navigation">
@@ -74,7 +70,7 @@ else if ($_SERVER['REQUEST_URI'] == '/OnlineMgmt/ProfileEditPage.php')
         <span class="icon-bar"></span>
         <span class="sr-only">Toggle navigation</span>
       </button>
-      <a class="navbar-brand" href="index.php">The Hospital</a>
+      <a style="color: #ffffff; background-color: #0a829a;" class="navbar-brand" href="index.php">The Hospital</a>
     </div>
 
     <div class="collapse navbar-collapse" id="navigation">

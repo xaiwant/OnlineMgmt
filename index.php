@@ -19,28 +19,6 @@
   </head>
 
   <body>
-  
-  <nav class="navbar navbar-inverse fixed-bottom">
-  <div class="container-fluid">
-    <!-- Copyright-->
-	    <!-- Copyright-->
-    <div class="footer-copyright py-3 text-center">
-        © 2018 Copyright:
-        <a href="#">
-            <strong> TheHospital.com</strong>
-        </a>
-    </div>
-	
-	
-    <div class="footer-copyright py-3 text-center">
-   	    <a href="#" class="fa fa-facebook"></a>
-		<a href="#" class="fa fa-twitter"></a>
-		<a href="#" class="fa fa-google"></a>
-		<a href="#" class="fa fa-linkedin"></a>
-		<a href="#" class="fa fa-youtube"></a>
-    </div>	
-  </div>
-</nav>
     <!-- Page Content -->
     <section>
       <div class="container">
@@ -55,7 +33,7 @@ include ('Session.php');
 if (empty($_SESSION['email']))
 { ?>
 		   	<a href="userRegistration.php" class="btn btn-primary btn-lg" role="button">Sign Up</a>
-			<a href="UserLogin.php" class="btn btn-primary btn-lg" role="button">Login</a>
+			<a href="UserLogin.php" class="btn btn-primary btn-lg" role="button">Log In</a>
 <?php
 }
 else
