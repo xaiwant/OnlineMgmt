@@ -63,6 +63,6 @@ $(document).ready(function(){
      });
 });
 
-$(document).ready(function(){
-  jQuery.scrollspeed(100,800);
+$(function() {  
+    jQuery.scrollSpeed(100, 800);
 });
