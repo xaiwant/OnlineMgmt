@@ -389,9 +389,32 @@ $easing: cubic-bezier(0.7, 0, 0, 0.7);
   }
 }			
 	
-@media (min-width: 1200px) {
+@media(min-width : 1200px) {
  #registrationform_id {
     width: 748px;
  }	
+	.navbar-nav {
+
+	}
+	ul.nav.navbar-nav li a {
+
+	} 
 }
-			
+
+/*==========  Mobile First Method  ==========*/
+
+/* Custom, iPhone Retina */ 
+
+@media (max-width : 480px) {	
+	.navbar-nav {
+		text-align: center;
+		width: 100%;
+	}
+	ul.nav.navbar-nav li a {
+		font-size: 15px;
+		font-weight: bold;
+		background-color: #2590a7;
+		border-bottom: 1px solid #ffffff;
+		padding: 10px;
+	}   
+}

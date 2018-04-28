@@ -85,6 +85,8 @@ else
 <?php
 if (isset($_POST["pfirstname"]) && isset($_POST["pemail"]))
 {
+  if (time() < strtotime($_POST['PDatOfAppt']) ) {
+	
     $query = "INSERT INTO appointment (pname, pemail, pmob_number, PDatOfAppt, pdepartment, popdvisit, patientid, preqtime )
 						VALUES ('" . $_POST["pfirstname"] . "','" . $_POST["pemail"] . "','" . $_POST["pmob_number"] . "','" . $_POST["PDatOfAppt"] . "','" . $_POST["p_appoint_dpt"] . "',
 						'" . $_POST["p_visit"] . "', '" . $_POST["pid"] . "', '" . time() . "')";
@@ -106,6 +108,15 @@ if (isset($_POST["pfirstname"]) && isset($_POST["pemail"]))
   </div>
 
 <?php
+	} else {
+?>		
+			  <div class="alert alert-warning alert-dismissible">
+				<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+	             Enter Valid Appointment date.			
+			  </div>	
+<?php			  
+	}
+
 }
 else
 {
