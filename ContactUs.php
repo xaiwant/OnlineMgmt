@@ -65,7 +65,7 @@ if (isset($_POST["cname"]) && isset($_POST["cqueryt"]) && isset($_POST["cqueryq"
   
  <?php 
 	        $query      = "INSERT INTO query (cname, cqueryt, cqueryq, cemail, cmob_number, creqtime)
-						     VALUES ('" . $_POST["cname"] . "','" . $_POST["cqueryt"] . "','" . $_POST["cqueryq"] . "','" . $_POST["cemail"] . "','" . $_POST["cmob_number"] . "','" . time() . "')";
+						     VALUES ('" . strip_tags($_POST["cname"]) . "','" . $_POST["cqueryt"] . "','" . strip_tags($_POST["cqueryq"]) . "','" . strip_tags($_POST["cemail"]) . "','" . strip_tags($_POST["cmob_number"]) . "','" . time() . "')";
         
             mysqli_query($conn, $query);
 }
