@@ -88,8 +88,8 @@ if (isset($_POST["pfirstname"]) && isset($_POST["pemail"]))
   if (time() < strtotime($_POST['PDatOfAppt']) ) {
 	
     $query = "INSERT INTO appointment (pname, pemail, pmob_number, PDatOfAppt, pdepartment, popdvisit, patientid, preqtime )
-						VALUES ('" . $_POST["pfirstname"] . "','" . $_POST["pemail"] . "','" . $_POST["pmob_number"] . "','" . $_POST["PDatOfAppt"] . "','" . $_POST["p_appoint_dpt"] . "',
-						'" . $_POST["p_visit"] . "', '" . $_POST["pid"] . "', '" . time() . "')";
+						VALUES ('" . strip_tags($_POST["pfirstname"]) . "','" . strip_tags($_POST["pemail"]) . "','" . strip_tags($_POST["pmob_number"]) . "','" . $_POST["PDatOfAppt"] . "','" . $_POST["p_appoint_dpt"] . "',
+						'" . $_POST["p_visit"] . "', '" . strip_tags($_POST["pid"]) . "', '" . time() . "')";
 
     mysqli_query($conn, $query);
 /*	
