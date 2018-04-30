@@ -59,12 +59,12 @@ else
 if (isset($_POST["pass1"]) && isset($_POST["email"]) && isset($_POST["user_role"]))
 {
 
-    $sql4 = "SELECT email from Users where pass1='" . md5($_POST["pass1"]) . "' AND email='" . $_POST["email"] . "' AND user_role='" . $_POST["user_role"] . "'";
+    $sql4 = "SELECT email from Users where pass1='" . strip_tags(md5($_POST["pass1"])) . "' AND email='" . strip_tags($_POST["email"]) . "' AND user_role='" . $_POST["user_role"] . "'";
     if (mysqli_num_rows(mysqli_query($conn, $sql4)) >= 1)
     {
 
-        $_SESSION['email'] = $_POST["email"];
-        $_SESSION['pass'] = md5($_POST["pass1"]);
+        $_SESSION['email'] = strip_tags($_POST["email"]);
+        $_SESSION['pass'] = strip_tags(md5($_POST["pass1"]));
         $_SESSION['user_role'] = $_POST["user_role"];
         $_SESSION['time'] = time();
 
@@ -73,7 +73,7 @@ if (isset($_POST["pass1"]) && isset($_POST["email"]) && isset($_POST["user_role"
         {
 
             /*insert into session table*/
-            $query = "INSERT INTO Session (email, pass1, browser_detail, client_ip, logintime)VALUES ('" . $_POST["email"] . "','" . md5($_POST["pass1"]) . "','" . $_SERVER['HTTP_USER_AGENT'] . "','" . $_SERVER['REMOTE_ADDR'] . "','" . $_SESSION['time'] . "')";
+            $query = "INSERT INTO Session (email, pass1, browser_detail, client_ip, logintime)VALUES ('" . strip_tags($_POST["email"]) . "','" . strip_tags(md5($_POST["pass1"])) . "','" . $_SERVER['HTTP_USER_AGENT'] . "','" . $_SERVER['REMOTE_ADDR'] . "','" . $_SESSION['time'] . "')";
             mysqli_query($conn, $query);
         }
         else
