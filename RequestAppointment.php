@@ -50,7 +50,7 @@ if ((!empty($_SESSION)) && ($_SESSION['user_role'] == 'Patient'))
                                  <option value="urology">Urology</option>
                         </select>
                     </div>					
-                    <div class="col-md-6 col-xs-12 form-group">
+                    <div id="pvisit" class="col-md-6 col-xs-12 form-group">
                         <label>Visiting OPD For The First Time?*</label>
                         <br>
                         <input id="p_visit" type="radio" name="p_visit" value="yes"> Yes

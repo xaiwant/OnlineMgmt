@@ -38,6 +38,24 @@ jQuery("#profile-image").click(function() { // bCheck is a input type button
         alert("no file selected");
     }
 });
+
+/*Request Appointment page display/hide PatientID field.*/
+
+        $("#pvisit").click(function(){
+			if ($('input[name=p_visit]:checked').val() == "yes" ) {
+				$("#pids").addClass("hidden");
+				$("#pid").prop('required',false);			
+			}else {
+				$("#pids").removeClass("hidden");
+				$("#pid").prop('required',true);
+			}
+        });
+
+
+
+
+
+
 });
 
 function menu_bootstrap() {
@@ -49,22 +67,11 @@ function menu_bootstrap() {
     }
 }
 
-$(document).ready(function(){
-    //$("#pids").hide();
-        $("#p_visit").click(function(){
-        if ($('input[name=p_visit]:checked').val() == "yes" ) {
-			console.log('show');
-            $("#pids").show();	
-        }else {
-            //$("#p_doc_names").slideUp("fast"); 
-            $("#pids").hide();
-			console.log('hide');
-        }
-     });
-});
+
+
 
 $(function() {  
 
-    jQuery.scrollSpeed(100, 800);
+   // jQuery.scrollSpeed(100, 800);
 
 });

@@ -59,7 +59,7 @@ else if ($_SERVER['REQUEST_URI'] == '/OnlineMgmt/ProfileEditPage.php')
 	       <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
            <link rel="stylesheet" type="text/css" href="css/styles.css">
 	       <script src="js/Register.js"></script>	
-           <script src="js/jQuery.scrollSpeed.js"></script>		   
+           <script src="js/jQuery.scrollSpeed.js"></script>      		 
    </head>
     <body style="background-image:url('images/slider-2.jpeg')">
 <nav class="navbar navbar-default navbar-static-top" role="navigation">
