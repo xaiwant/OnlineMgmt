@@ -1,27 +1,28 @@
 <?php
 include ('header.php');
-//include ('Connection.php');
-//$conn = mysqli_connect($dbhost, $username, $password, $dbname);
 if ((!empty($_SESSION)) && ($_SESSION['user_role'] == 'Patient'))
 {
+	$sql9 = "SELECT * from Users where email='" . $_SESSION["email"] . "'";
+	$val = mysqli_query($conn, $sql9);
+    while ($rows = mysqli_fetch_assoc($val))
+     {
 ?>
-    <form id="register" action="" method="post">
+    <form id="register" action="" method="post">	
         <div class="row">
             <div id="registrationform_id">             
                 <fieldset>
                     <legend><span class="glyphicon glyphicon-user"></span> Patient Information:</legend>
-
                     <div class="col-md-6 col-xs-12 form-group">
                         <label>Patient Full Name *</label>
-                        <input name="pfirstname" id="pfirstname" class="form-control" type="text" required autocomplete="off" />
+                        <input name="pfirstname" id="pfirstname" value= <?php echo $rows['firstname']; ?> class="form-control" type="text" required autocomplete="off" />
                     </div>
                     <div class="col-md-6 col-xs-12 form-group">
                         <label>Email ID *</label>
-                        <input name="pemail" id="pemail" class="form-control" type="email" required autocomplete="off" />
+                        <input name="pemail" id="pemail" value= <?php echo $rows['email']; ?> class="form-control" type="email" required autocomplete="off" />
                     </div>
                     <div class="col-md-6 col-xs-12 form-group">
                         <label>Contact No. *</label>
-                        <input name="pmob_number" id="pmob_number" class="form-control" type="text" required autocomplete="off" />
+                        <input name="pmob_number" id="pmob_number" value= <?php echo $rows['mob_number']; ?> class="form-control" type="text" required autocomplete="off" />
                     </div>
                     <div class="col-md-6 col-xs-12 form-group">
                         <label>Date of Appointment *</label>
@@ -55,12 +56,12 @@ if ((!empty($_SESSION)) && ($_SESSION['user_role'] == 'Patient'))
                         <br>
                         <input id="p_visit" type="radio" name="p_visit" value="yes"> Yes
                         <br>
-                        <input id="p_visit" type="radio" name="p_visit" value="no"> No
+                        <input id="p_visit" type="radio" name="p_visit" checked="checked" value="no"> No
                         <br>
                     </div>
                     <div id="pids" class="col-md-6 col-xs-12 form-group">
                         <label>Patient ID *</label>
-                        <input name="pid" id="pid" class="form-control" type="text" autocomplete="off" />
+                        <input name="pid" id="pid" value= <?php echo $rows['patientid']; ?>  class="form-control" type="text" autocomplete="off" />
                     </div>				
                 </fieldset>
 				
@@ -71,6 +72,7 @@ if ((!empty($_SESSION)) && ($_SESSION['user_role'] == 'Patient'))
         </div>
     </form>
     <?php
+	}
 }
 else
 {
